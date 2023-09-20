@@ -1,4 +1,4 @@
-all: helloWorld input rectangle salary theater typeSize sun
+all: helloWorld input rectangle salary theater typeSize sun quiz_01
 
 helloWorld: helloWorld.c
 	gcc -o helloWorld helloWorld.c
@@ -21,5 +21,8 @@ typeSize: typeSize.c
 sun: sun.c
 	gcc -o sun sun.c
 
+quiz_01: quiz_01.c
+	gcc -o quiz_01 quiz_01.c
+
 clean : 
-	rm helloWorld input rectangle salary theater typeSize sun
+	rm helloWorld input rectangle salary theater typeSize sun quiz_01
