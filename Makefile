@@ -1,4 +1,4 @@
-all: helloWorld input rectangle salary theater typeSize sun quiz_01 unsigned change calc_int
+all: helloWorld input rectangle salary theater typeSize sun quiz_01 unsigned change calc_int chicken
 
 helloWorld: helloWorld.c
 	gcc -o helloWorld helloWorld.c
@@ -33,5 +33,8 @@ unsigned: unsigned.c
 calc_int: calc_int.c
 	gcc -o calc_int calc_int.c
 
+chicken: chicken.c
+	gcc -o chicken chicken.c
+
 clean : 
-	rm helloWorld input rectangle salary theater typeSize sun quiz_01 change unsigned calc_int
+	rm helloWorld input rectangle salary theater typeSize sun quiz_01 change unsigned calc_int chicken
