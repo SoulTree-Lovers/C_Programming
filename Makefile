@@ -39,5 +39,7 @@ chicken: chicken.c
 rand: rand.c
 	gcc -o rand rand.c
 
+
+
 clean : 
 	rm helloWorld input rectangle salary theater typeSize sun quiz_01 change unsigned calc_int chicken rand
