@@ -16,9 +16,11 @@ void withdraw(int money) {
 }
 
 int main() {
-    
+    char name[10];
     int pin;
     int pin_num = 1234;
+    printf("이름을 입력하세요: ");
+    scanf("%s", name);
     printf("PIN 번호를 입력하세요: ");
     scanf("%d", &pin);
 
@@ -27,7 +29,7 @@ int main() {
         return 0;
     }
 
-    printf("안녕하세요!\n");
+    printf("안녕하세요! %s님.\n", name);
     
     printf("1. 입금\n2. 출금\n");
     int menu, money;
