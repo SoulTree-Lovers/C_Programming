@@ -20,6 +20,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 
 char menuItems[] = {'U', 'Z', 'T'};
@@ -40,11 +41,6 @@ int processReceipts(char* order) {
     }
     // 주문이 하나도 담겨있지 않은 경우 예외처리
     if (quantities[0] == 0 && quantities[1] == 0 && quantities[2] == 0) {
-        return 1;
-    }
-
-    // 주문의 길이가 6이 아닌 경우
-    if (sizeof(order) != 6) {
         return 1;
     }
 
