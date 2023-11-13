@@ -28,6 +28,7 @@ int prices[] = {7000, 8000, 12000};
 int quantities[] = {0, 0, 0};
 
 int processReceipts(char* order) {
+    // 주문을 분석하여 각 메뉴의 수량 결정 및 총 비용 계산
     for (int i = 0; *(order+i) != '\0'; i++) {
         if (isalpha(*(order+i))) {
             for (int j = 0; j < 3; j++) {
@@ -37,15 +38,34 @@ int processReceipts(char* order) {
             }
         }
     }
+    // 주문이 하나도 담겨있지 않은 경우 예외처리
     if (quantities[0] == 0 && quantities[1] == 0 && quantities[2] == 0) {
         return 1;
     }
+
+    // 주문의 길이가 6이 아닌 경우
+    if (sizeof(order) != 6) {
+        return 1;
+    }
+
+    // 주문에 U, Z, T가 아닌 다른 문자가 들어있는 경우
+    for (int i = 0; *(order+i) != '\0'; i++) {
+        if (isalpha(*(order+i))) {
+            if (*(order+i) != 'U' && *(order+i) != 'Z' && *(order+i) != 'T') {
+                return 1;
+            }
+        }
+    }
+
+    // 주문이 정상적으로 처리된 경우
     return 0;
 }
 
 int main() {
-    char order[100];
-    int error = 0;
+    char order[100]; // 주문 문자열
+    int error = 0; // 오류 발생 여부
+
+    // 주문 입력
     while (1) {
         printf("주문을 입력하세요(예: 'U3Z4T1', 종료하려면 'X' 입력): ");
         scanf("%s", order);
@@ -55,19 +75,26 @@ int main() {
         error = processReceipts(order);
         break;
     }
+
+    // 오류가 발생한 경우
     if (error == 1) {
         printf("잘못된 입력입니다.\n");
         return 1;
     }
+    
+    // 주문 내역 출력
     printf("주문 내역:\n");
     int i;
     for (i = 0; i < 3; i++) {
         printf("%s: %d그릇 - %d원\n", menuNames[i], quantities[i], prices[i] * quantities[i]);
     }
+
+    // 총 비용 계산
     int total = 0;
     for (i = 0; i < 3; i++) {
         total += prices[i] * quantities[i];
     }
-    printf("총 비용: %d원\n", total);
+
+    printf("총 비용: %d원\n", total); // 총 비용 출력
     return 0;
 }
