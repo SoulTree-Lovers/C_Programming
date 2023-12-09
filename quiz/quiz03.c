@@ -15,7 +15,6 @@ int removeCharacters(char* s, char c) {
     *p = '\0'; // 문자열의 끝에 null 문자 저장
     return count;
 }
-    
 
 int main() {
     char str[SIZE]; // 문자열을 저장할 배열
